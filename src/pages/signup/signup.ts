@@ -129,7 +129,7 @@ export class SignupPage implements OnInit {
 		const birthDate = this.registerForm.get("birthDate").value;
 		const birthYear = birthDate.substr(0,4);
 		const birthMonth = birthDate.substr(5, 2);
-    const birthDay = birthDate.substr(8, 2);
+    	const birthDay = birthDate.substr(8, 2);
 
 		const email = this.registerForm.get("email").value;
 		const password = this.registerForm.get("password").value;
@@ -137,13 +137,17 @@ export class SignupPage implements OnInit {
 		// Initialisation des données non encore fournies
 		const choix = "";
 		const sexe = "";
+		const description = "";
+		const philosophie = "";
+		const like = "";
+		const notlike = "";
 		let photo = "";
 		// Récupération de l'url de la photo
 		if (this.fileUrl && this.fileUrl !== "") {
 			photo = this.fileUrl;
 		}
 		// Assignation des données recueillies à l'objet l'utilisateur
-		this.user = new User(pseudo, birthDay, birthMonth, birthYear, choix, sexe, photo);
+		this.user = new User(pseudo, birthDay, birthMonth, birthYear, choix, sexe, description, philosophie, like, notlike, photo);
 
 		// Enregistrement de l'utilisateur après l'enregistrement de l'authentification
 		this.authService.signUpUser(email, password).then(

@@ -7,7 +7,7 @@
 					<p class="orange">{{userAge}} ans</p>
 				</ion-col>
 				<ion-col>
-					<ion-avatar>
+					<ion-avatar id="imgAvatar">
 						<img id='imgProfil' *ngIf="user.photo" [src]="user.photo" alt='photo de profils'>
 					</ion-avatar>
 				</ion-col>
@@ -41,33 +41,47 @@
 					</ng-template>
 				</ion-col>
 			</ion-row>
-		</ion-item>
+		</ion-item><hr>
 
-		<!-- <form (ngSubmit)="logForm()">
+    <form (ngSubmit)="updateProfil()">
+    	<ion-list>
+
 			<ion-item>
-				<ion-label>Todo</ion-label>
-				<ion-input type="text" [ngModel]="todo.title" name="title"></ion-input>
+				<ion-label color="orange" *ngIf="emptyDescription; else stacklabel1" floating>....  ici votre description  ....</ion-label>
+				<ng-template #stacklabel1>
+					<ion-label color="orange" stacked>Ma Description :</ion-label>
+				</ng-template>
+				<ion-textarea [(ngModel)]="user.description" name="description" clearIntput></ion-textarea>
 			</ion-item>
+
 			<ion-item>
-				<ion-label>Description</ion-label>
-				<ion-textarea [ngModel]="todo.description" name="description"></ion-textarea>
+				<ion-label color="orange" *ngIf="emptyPhilosophie; else stacklabel2" floating>....  ici votre philosophie de vie  ....</ion-label>
+				<ng-template #stacklabel2>
+					<ion-label color="orange" stacked>Ma Philosophie :</ion-label>					
+				</ng-template>
+				<ion-textarea [(ngModel)]="user.philosophie" name="philo" clearIntput></ion-textarea>
 			</ion-item>
-			<button ion-button type="submit" block>Add Todo</button>
-		</form> -->
 
-		<ion-list>
-			<ion-list-header>
-				<h2>Ce que j'aime : </h2>
-			</ion-list-header>
+			<ion-item>
+				<ion-label color="orange" *ngIf="emptyLike; else stacklabel3" floating>.... ici ce que vous aimez ....</ion-label>
+				<ng-template #stacklabel3>
+					<ion-label color="orange" stacked>Ce que j'aime :</ion-label>
+				</ng-template>
+				<ion-textarea [(ngModel)]="user.like" name="like" clearIntput></ion-textarea>
+			</ion-item>
+
+			<ion-item>
+				<ion-label color="orange" *ngIf="emptyNotLike; else stacklabel4" floating>.... ici ce que vous n'aimez pas ....</ion-label>
+				<ng-template #stacklabel4>
+					<ion-label color="orange" stacked>Ce que je n'aime pas :</ion-label>
+				</ng-template>
+				<ion-textarea [(ngModel)]="user.notlike" name="notlike" clearIntput></ion-textarea>
+			</ion-item>
+
+			<!-- Bouton de mis à jour du profil -->
+	      	<button ion-button color="orange" round outline type="submit" block>Mise à Jour</button>
 		</ion-list>
+    </form>		
 
-		<ion-list>
-			<ion-list-header>
-				<h2>Ce que je n'aime pas : </h2>
-			</ion-list-header>
-		</ion-list>
-
-		<!-- Bouton de mis à jour du profil -->
-		<button id="button" ion-button color="orange" round outline (click)="updateProfil(champDescription.value)">Mise à jour</button>
 	</ion-grid>
 </ion-content>

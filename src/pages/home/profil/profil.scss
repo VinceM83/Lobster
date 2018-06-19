@@ -12,9 +12,19 @@ page-profil {
 	    border: 2px solid #de4f31;
 	}
 
+	.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+	.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+	    border-bottom-color: transparent;
+	    box-shadow: inset 0 -1px 0 0 #dedede;
+	}	
+
 	#profil {
-		padding-top: 15%;
-		padding-left: 10%;
+		padding-top: 1.75em;
+		padding-left: 3em;
+	}
+
+	#imgAvatar {
+		padding-right: 1em;
 	}
 
 	.imgSexe {
@@ -23,7 +33,7 @@ page-profil {
 	}
 	.interest {
 		color: #de4f31;
-		padding-top: 1.5em;
+		padding-top: 1em;
 	}
 
 	h1, h2 {
